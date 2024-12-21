@@ -1,5 +1,8 @@
+import 'package:app_notas_braga/ViewModel.dart';
+import 'package:app_notas_braga/ui/theme.dart';
+import 'package:app_notas_braga/ui/views/home_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 void main() {
   runApp(const MainApp());
 }
@@ -9,11 +12,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return ChangeNotifierProvider(
+      create: (context) => HomePageState(),
+      child: MaterialApp(
+        theme: theme,
+        home: const HomePage()
       ),
     );
   }
