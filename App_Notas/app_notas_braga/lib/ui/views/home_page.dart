@@ -28,6 +28,7 @@ class _HomePage extends State<HomePage> {
     final appState = context.watch<HomePageState>();
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text('Notas'),
         backgroundColor: theme.appBarTheme.backgroundColor,
       ),

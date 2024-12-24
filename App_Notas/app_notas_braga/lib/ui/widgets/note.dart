@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:app_notas_braga/ViewModel.dart';
-import 'package:app_notas_braga/ui/widgets/overlay.dart';
+import 'package:app_notas_braga/ui/views/note_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,28 +20,20 @@ class Note extends StatefulWidget {
 }
 
 class _NoteState extends State<Note> {
-
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<HomePageState>();
-
-    TextEditingController titleController =
-        TextEditingController(text: widget.title);
-    TextEditingController contentController =
-        TextEditingController(text: widget.content);
     return GestureDetector(
       onTap: () {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return OverlayDialog(
-              isEdit: true,
-              editingNote: widget,
-              overlayTitle: 'Edit ${widget.title} note',
-              titleController: titleController,
-              contentController: contentController,
-            );
-          },
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => NoteView(
+              title: widget.title,
+              content: widget.content,
+              note: widget,
+            ),
+          ),
         );
       },
       onLongPress: () {

@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 class HomePageState extends ChangeNotifier {
   List<Widget> notas = List.generate(5, (index) => Note(title: index.toString(), content: 'Este é o indice $index'));
 
+  //Criar funcionalidades: 
+  // -criar categorias para as notas(Estrela/favoritos é uma delas)
+  // -Adicionar notas nessas categorias
+
   
   void addItem(Widget note){
 
