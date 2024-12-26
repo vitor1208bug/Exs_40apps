@@ -37,7 +37,9 @@ class _NoteState extends State<Note> {
         );
       },
       onLongPress: () {
-        appState.removeItem(widget);
+        appState.removeItem(
+          note: widget,
+        );
       },
       child: Container(
         margin: EdgeInsets.all(10),

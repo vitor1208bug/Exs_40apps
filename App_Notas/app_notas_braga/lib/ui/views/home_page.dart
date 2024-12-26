@@ -28,6 +28,7 @@ class _HomePage extends State<HomePage> {
     final appState = context.watch<HomePageState>();
     return Scaffold(
       appBar: AppBar(
+        leading: Icon(Icons.more_vert),
         centerTitle: true,
         title: Text('Notas'),
         backgroundColor: theme.appBarTheme.backgroundColor,
@@ -37,9 +38,9 @@ class _HomePage extends State<HomePage> {
         primary: false,
         gridDelegate:
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemCount: appState.notas.length,
+        itemCount: appState.allNotes.length,
         itemBuilder: (context, index) {
-          return appState.notas[index];
+          return appState.allNotes[index];
         },
       ),
       floatingActionButton: FloatingActionButton(

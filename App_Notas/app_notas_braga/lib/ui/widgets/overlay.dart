@@ -60,7 +60,7 @@ class _OverlayDialogState extends State<OverlayDialog> {
                       content: widget.contentController!.text,
                     ))
                 : appState.addItem(
-                    Note(
+                    note: Note(
                       title: widget.titleController!.text,
                       content: widget.contentController!.text,
                     ),
