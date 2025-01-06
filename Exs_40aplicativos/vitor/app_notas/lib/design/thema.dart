@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 Color themaPrimaryScaffolf = Colors.black;
@@ -11,9 +12,10 @@ AppBar themeAppBar = AppBar(
   ),
   backgroundColor: Colors.indigo[400],
   titleTextStyle: const TextStyle(color: Colors.black),
-  leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
   centerTitle: true,
 );
+
+
 
 
 class LinhasDeTexto extends StatelessWidget {
@@ -27,9 +29,30 @@ class LinhasDeTexto extends StatelessWidget {
       autocorrect: true,
       maxLines: null,
       decoration: InputDecoration(
-          border: InputBorder.none, hintText: "Digite Sua Nota Aqui: ",
-          contentPadding: EdgeInsets.all(10)
-        ),
+          border: InputBorder.none,
+          hintText: "coloque o titulo e Digite Sua Nota Aqui: ",
+          contentPadding: EdgeInsets.all(10)),
     );
   }
 }
+
+class AppState with ChangeNotifier {
+  Pages switchpages = Pages.pageHome;
+
+  List<String> dados = [];
+
+
+  void updatePage(Pages page) {
+    switchpages = page;
+    notifyListeners();
+  }
+
+  void salvarTexto(String texto) {
+    if (texto.isNotEmpty) {
+      dados.add(texto);
+      notifyListeners();
+    }
+  }
+}
+
+enum Pages { pageHome, pageFavorita }
