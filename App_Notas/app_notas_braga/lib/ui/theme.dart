@@ -6,7 +6,7 @@ final theme = ThemeData(
     seedColor: Colors.amber,
   ),
   appBarTheme: const AppBarTheme(
-    centerTitle: true,
+    centerTitle: false,
   ),
   cardColor: Colors.amber[300],
   scaffoldBackgroundColor: const Color.fromARGB(255, 218, 203, 155)
